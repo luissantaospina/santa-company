@@ -1,5 +1,5 @@
 export class Product {
-  id: number;
+  id: string;
   cantidad: number;
   categoria: string;
   codigo: string;
@@ -8,7 +8,7 @@ export class Product {
   precio: number;
 
   constructor(
-    id: number,
+    id: string,
     cantidad: number,
     categoria: string,
     codigo: string,
