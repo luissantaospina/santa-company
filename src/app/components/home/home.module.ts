@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ClientComponent,
     RoleComponent,
     UserComponent,
-    HomeComponent
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
