@@ -7,6 +7,8 @@ import { ClientComponent } from './client/client.component';
 import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    MatIconModule,
+    MatTooltipModule
   ]
 })
 export class HomeModule { }
