@@ -13,8 +13,6 @@ export class ClientComponent implements OnInit {
     // private _snackBar: MatSnackBar
   ) { }
 
-  displayedColumns: string[] = ['name', 'email', 'actions'];
-
   clients: Array<Client> = []
 
   deleteClient(clientId: string): void {

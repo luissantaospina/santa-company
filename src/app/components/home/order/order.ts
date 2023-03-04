@@ -1,9 +1,9 @@
 export class Order {
-  id: string;
-  cliente_id: string;
-  codigo: string;
-  precio: number;
-  fecha_compra: string;
+  id: string
+  cliente_id: string
+  codigo: string
+  precio: number
+  fecha_compra: string
 
   constructor(
     id: string,

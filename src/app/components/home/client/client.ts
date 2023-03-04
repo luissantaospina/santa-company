@@ -1,7 +1,7 @@
 export class Client {
-  id: string;
-  nombre: string;
-  login: string;
+  id: string
+  nombre: string
+  login: string
 
   constructor(
     id: string,
