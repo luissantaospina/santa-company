@@ -76,3 +76,10 @@
   (confirmCreation) = "confirmCreation()"
 >
 </app-order-create>
+
+<app-toast
+  *ngIf="toastModalActive"
+  [toastTitle] = "'Orden eliminada exitosamente'"
+  [type] = "'info'"
+>
+</app-toast>

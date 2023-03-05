@@ -14,6 +14,7 @@ export class OrderComponent implements OnInit {
   orders: Array<Order> = []
   deleteModalActive: boolean = false
   createModalActive: boolean = false
+  toastModalActive: boolean = false
   selectedOrder: any
 
   confirmDeletion(value: boolean) {
@@ -29,6 +30,7 @@ export class OrderComponent implements OnInit {
   deleteOrder(orderId: string): void {
     this.orderService.deleteOrder(orderId).subscribe(() => {
       this.getOrdersList()
+      this.toastModalActive = true
     })
   }
 
