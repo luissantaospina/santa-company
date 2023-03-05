@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "./user.service";
-import {User} from "./User";
-// import {MatSnackBar} from '@angular/material/snack-bar';
+import { UserService } from "./user.service";
+import { User} from "./User";
 
 @Component({
   selector: 'app-user',
@@ -10,19 +9,22 @@ import {User} from "./User";
 export class UserComponent implements OnInit {
   user: User | undefined
 
-  constructor(
-    private userService: UserService,
-    // private _snackBar: MatSnackBar
-  ) { }
+  constructor(private userService: UserService) { }
 
   users: Array<User> = []
+  deleteModalActive: boolean = false
+  selectedUser: any
+
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteUser(this.selectedUser.id)
+    this.deleteModalActive = false
+  }
 
   deleteUser(userId: string): void {
     this.userService.deleteUser(userId).subscribe(user => {
       this.user = user
+      this.getUsersList()
     })
-    this.openSnackBar('Usuario eliminado exitosamente')
-    this.getUsersList()
   }
 
   getUsersList(): void {
@@ -35,13 +37,8 @@ export class UserComponent implements OnInit {
     this.getUsersList()
   }
 
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 4000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
+  selectDeleteUser(user: User) {
+    this.selectedUser = user
+    this.deleteModalActive = true
   }
 }
