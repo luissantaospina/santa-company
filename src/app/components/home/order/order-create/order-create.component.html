@@ -11,25 +11,51 @@
       <div class="px-6 py-6 lg:px-8">
         <h3 class="mb-4 text-xl font-medium text-gray-900">Crear Orden</h3>
         <form [formGroup]="createOrderForm" (ngSubmit)="createOrder(createOrderForm.value)">
+
           <div class="mb-6">
-            <label for="code" class="block mb-2 text-sm font-medium text-gray-900">Código</label>
+            <label for="code" class="block mb-1 text-sm font-medium text-gray-900">Código</label>
             <input id="code" formControlName="codigo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="PROD-12432" required>
+            <p *ngIf="createOrderForm.get('codigo')!.hasError('required') &&
+              createOrderForm.get('codigo')!.touched"
+              class="text-sm text-red-600"
+            >Campo requerido</p>
           </div>
+
           <div class="mb-6">
-            <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Precio</label>
+            <label for="price" class="block mb-1 text-sm font-medium text-gray-900">Precio</label>
             <input id="price" formControlName="precio" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="1.000.000" required>
+            <p *ngIf="createOrderForm.get('precio')!.hasError('required') &&
+              createOrderForm.get('precio')!.touched"
+               class="text-sm text-red-600"
+            >Campo requerido</p>
           </div>
+
           <div class="mb-6">
-            <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Fecha de compra</label>
-            <input id="date" formControlName="fecha_compra" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <label for="date" class="block mb-1 text-sm font-medium text-gray-900">Fecha de compra</label>
+            <input id="date" min="{{date}}" formControlName="fecha_compra" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <p *ngIf="createOrderForm.get('fecha_compra')!.hasError('required') &&
+              createOrderForm.get('fecha_compra')!.touched"
+               class="text-sm text-red-600"
+            >Campo requerido</p>
           </div>
-          <button
-            type="submit"
-            [disabled]="createOrderForm.invalid"
-            class="inline-flex items-center text-white bg-indigo-600 hover:bg-indigo-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-6 py-2.5"
-          >
-            Crear
-          </button>
+
+          <div class="flex justify-end">
+            <button
+              (click)="emitConfirmCreation(false)"
+              type="button"
+              class="text-gray-500 mr-5 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-base font-medium px-5 py-2 hover:text-gray-900 focus:z-10"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              [ngClass]="{'opacity-50 cursor-not-allowed': createOrderForm.invalid}"
+              [disabled]="createOrderForm.invalid"
+              class="inline-flex items-center text-white bg-indigo-600 hover:bg-indigo-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-9 py-2"
+            >
+              Crear
+            </button>
+          </div>
         </form>
       </div>
     </div>
