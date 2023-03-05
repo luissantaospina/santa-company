@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ClientService} from "./client.service";
 import {Client} from "./client";
-// import {MatSnackBar} from '@angular/material/snack-bar';
+import {Order} from "../order/order";
 
 @Component({
   selector: 'app-client',
@@ -9,15 +9,20 @@ import {Client} from "./client";
 })
 export class ClientComponent implements OnInit {
   constructor(
-    private clientService: ClientService,
-    // private _snackBar: MatSnackBar
+    private clientService: ClientService
   ) { }
 
   clients: Array<Client> = []
+  deleteModalActive: boolean = false
+  selectedClient: any
+
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteClient(this.selectedClient.id)
+    this.deleteModalActive = false
+  }
 
   deleteClient(clientId: string): void {
     this.clientService.deleteClient(clientId).subscribe(() => {
-      this.openSnackBar('Cliente eliminado exitosamente')
       this.getClientsList()
     })
   }
@@ -32,13 +37,8 @@ export class ClientComponent implements OnInit {
     this.getClientsList()
   }
 
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 4000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
+  selectDeleteClient(client: Client) {
+    this.selectedClient = client
+    this.deleteModalActive = true
   }
 }

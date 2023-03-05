@@ -15,15 +15,15 @@ export class OrderComponent implements OnInit {
   deleteModalActive: boolean = false
   selectedOrder: any
 
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteOrder(this.selectedOrder.id)
+    this.deleteModalActive = false
+  }
+
   deleteOrder(orderId: string): void {
     this.orderService.deleteOrder(orderId).subscribe(() => {
       this.getOrdersList()
     })
-  }
-
-  confirmDeletion(value: boolean) {
-    if (value) this.deleteOrder(this.selectedOrder.id)
-    this.deleteModalActive = false
   }
 
   getOrdersList(): void {
