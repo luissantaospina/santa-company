@@ -4,8 +4,7 @@ import { Role } from "./role";
 
 @Component({
   selector: 'app-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.css']
+  templateUrl: './role.component.html'
 })
 export class RoleComponent implements OnInit {
   constructor(private roleService: RoleService) {}

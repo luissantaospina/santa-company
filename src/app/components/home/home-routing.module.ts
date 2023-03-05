@@ -6,11 +6,13 @@ import { ClientComponent } from "./client/client.component";
 import { ProductComponent } from "./product/product.component";
 import { RoleComponent } from "./role/role.component";
 import { OrderComponent } from "./order/order.component";
+import { HomeGuard } from "../../guards/home.guard";
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivateChild: [HomeGuard],
     children: [
       { path: 'users', component: UserComponent},
       { path: 'roles', component: RoleComponent},
