@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "./products.service";
 import { Product } from "./Product";
-// import { MatSnackBar } from '@angular/material/snack-bar';
+import {Order} from "../order/order";
 
 @Component({
   selector: 'app-product',
@@ -9,11 +9,23 @@ import { Product } from "./Product";
 })
 export class ProductComponent implements OnInit {
   constructor(
-    private productService: ProductsService,
-    // private _snackBar: MatSnackBar
+    private productService: ProductsService
   ) { }
 
   products: Array<Product> = []
+  deleteModalActive: boolean = false
+  selectedProduct: any
+
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteProduct(this.selectedProduct.id)
+    this.deleteModalActive = false
+  }
+
+  deleteProduct(productId: string): void {
+    this.productService.deleteProduct(productId).subscribe(() => {
+      this.getProductsList()
+    })
+  }
 
   getProductsList(): void {
     this.productService.getProducts().subscribe(products => {
@@ -21,24 +33,12 @@ export class ProductComponent implements OnInit {
     })
   }
 
-  deleteProduct(productId: string): void {
-    this.productService.deleteProduct(productId).subscribe(() => {
-      this.openSnackBar('Producto eliminado exitosamente')
-      this.getProductsList()
-    })
-  }
-
   ngOnInit(): void {
     this.getProductsList()
   }
 
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 4000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
+  selectDeleteProduct(product: Product) {
+    this.selectedProduct = product
+    this.deleteModalActive = true
   }
 }
