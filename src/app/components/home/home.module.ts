@@ -8,9 +8,8 @@ import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { OrderEditComponent } from './order/order-edit/order-edit.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { OrderCreateComponent } from './order/order-create/order-create.component';
+import { DeleteModalComponent } from "../share/delete-modal/delete-modal.component";
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { OrderCreateComponent } from './order/order-create/order-create.componen
     UserComponent,
     HomeComponent,
     SidebarComponent,
-    OrderEditComponent,
-    OrderCreateComponent
+    DeleteModalComponent
   ],
   imports: [
     CommonModule,
