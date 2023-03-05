@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {RoleService} from "./role.service";
-import {Role} from "./role";
-// import {MatSnackBar} from '@angular/material/snack-bar';
+import { RoleService } from "./role.service";
+import { Role } from "./role";
 
 @Component({
   selector: 'app-role',
@@ -9,20 +8,19 @@ import {Role} from "./role";
   styleUrls: ['./role.component.css']
 })
 export class RoleComponent implements OnInit {
-  constructor(
-    private roleService: RoleService,
-    // private _snackBar: MatSnackBar
-  ) { }
-
-  displayedColumns: string[] = ['name', 'actions'];
-
-  role: Role | undefined
+  constructor(private roleService: RoleService) {}
 
   roles: Array<Role> = []
+  deleteModalActive: boolean = false
+  selectedRole: any
+
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteRole(this.selectedRole.id)
+    this.deleteModalActive = false
+  }
 
   deleteRole(roleId: string): void {
     this.roleService.deleteRole(roleId).subscribe(() => {
-      this.openSnackBar('Rol eliminado exitosamente')
       this.getRolesList()
     })
   }
@@ -37,13 +35,8 @@ export class RoleComponent implements OnInit {
     this.getRolesList()
   }
 
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 4000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
+  selectDeleteRole(role: Role) {
+    this.selectedRole = role
+    this.deleteModalActive = true
   }
 }
