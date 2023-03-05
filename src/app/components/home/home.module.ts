@@ -7,10 +7,10 @@ import { ClientComponent } from './client/client.component';
 import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatTooltipModule} from "@angular/material/tooltip";
 import { SidebarComponent } from './sidebar/sidebar.component';
-
+import { OrderEditComponent } from './order/order-edit/order-edit.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { OrderCreateComponent } from './order/order-create/order-create.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +20,14 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RoleComponent,
     UserComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrderEditComponent,
+    OrderCreateComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatIconModule,
-    MatTooltipModule
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

@@ -6,6 +6,8 @@ import { ClientComponent } from "./client/client.component";
 import { ProductComponent } from "./product/product.component";
 import { RoleComponent } from "./role/role.component";
 import { OrderComponent } from "./order/order.component";
+import { OrderCreateComponent } from "./order/order-create/order-create.component";
+import { OrderEditComponent } from "./order/order-edit/order-edit.component";
 
 const routes: Routes = [
   {
@@ -17,8 +19,8 @@ const routes: Routes = [
       { path: 'clients', component: ClientComponent},
       { path: 'products', component: ProductComponent},
       { path: 'orders', component: OrderComponent},
-      // { path: 'ordenes/crear', component: CreateOrderComponent},
-      // { path: 'ordenes/editar/:id', component: EditOrderComponent},
+      { path: 'orders/create', component: OrderCreateComponent},
+      { path: 'orders/edit/:id', component: OrderEditComponent},
       // { path: 'productos/crear', component: CreateProductComponent},
       // { path: 'productos/editar/:id', component: EditProductComponent},
       // { path: 'usuarios/crear', component: CreateUserComponent},
