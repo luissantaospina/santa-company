@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { DeleteModalComponent } from "../share/delete-modal/delete-modal.component";
+import { OrderCreateComponent } from './order/order-create/order-create.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DeleteModalComponent } from "../share/delete-modal/delete-modal.compone
     UserComponent,
     HomeComponent,
     SidebarComponent,
-    DeleteModalComponent
+    DeleteModalComponent,
+    OrderCreateComponent
   ],
   imports: [
     CommonModule,

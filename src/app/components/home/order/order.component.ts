@@ -13,11 +13,17 @@ export class OrderComponent implements OnInit {
 
   orders: Array<Order> = []
   deleteModalActive: boolean = false
+  createModalActive: boolean = false
   selectedOrder: any
 
   confirmDeletion(value: boolean) {
     if (value) this.deleteOrder(this.selectedOrder.id)
     this.deleteModalActive = false
+  }
+
+  confirmCreation() {
+    this.getOrdersList()
+    this.createModalActive = false
   }
 
   deleteOrder(orderId: string): void {
