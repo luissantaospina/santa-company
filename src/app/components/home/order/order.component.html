@@ -78,12 +78,12 @@
 >
 </app-order-create>
 
-<app-order-edit
+<app-order-update
   *ngIf="updateModalActive"
   [orderId] = "selectedOrder"
   (confirmUpdate) = "confirmUpdate()"
 >
-</app-order-edit>
+</app-order-update>
 
 <app-toast
   *ngIf="toastModalActive"

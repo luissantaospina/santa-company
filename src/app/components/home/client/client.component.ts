@@ -14,11 +14,23 @@ export class ClientComponent implements OnInit {
 
   clients: Array<Client> = []
   deleteModalActive: boolean = false
+  createModalActive: boolean = false
+  updateModalActive: boolean = false
   selectedClient: any
 
   confirmDeletion(value: boolean) {
-    if (value) this.deleteClient(this.selectedClient.id)
+    if (value) this.deleteClient(this.selectedClient)
     this.deleteModalActive = false
+  }
+
+  confirmCreation() {
+    this.getClientsList()
+    this.createModalActive = false
+  }
+
+  confirmUpdate() {
+    this.getClientsList()
+    this.updateModalActive = false
   }
 
   deleteClient(clientId: string): void {
@@ -35,10 +47,5 @@ export class ClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClientsList()
-  }
-
-  selectDeleteClient(client: Client) {
-    this.selectedClient = client
-    this.deleteModalActive = true
   }
 }

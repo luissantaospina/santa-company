@@ -12,7 +12,9 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { DeleteModalComponent } from "../share/delete-modal/delete-modal.component";
 import { OrderCreateComponent } from './order/order-create/order-create.component';
 import { ToastComponent } from "../share/toast/toast.component";
-import { OrderEditComponent } from './order/order-edit/order-edit.component';
+import { OrderUpdateComponent } from './order/order-update/order-update.component';
+import { ClientCreateComponent } from './client/client-create/client-create.component';
+import { ClientUpdateComponent } from './client/client-update/client-update.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { OrderEditComponent } from './order/order-edit/order-edit.component';
     DeleteModalComponent,
     OrderCreateComponent,
     ToastComponent,
-    OrderEditComponent
+    OrderUpdateComponent,
+    ClientCreateComponent,
+    ClientUpdateComponent
   ],
   imports: [
     CommonModule,

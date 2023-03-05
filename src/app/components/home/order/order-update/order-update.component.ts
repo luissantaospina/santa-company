@@ -1,9 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {OrderService} from "../order.service";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
-import {formatDate} from "@angular/common";
-import {Order} from "../order";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Order } from "../order";
+import { OrderService } from "../order.service";
+import { formatDate } from "@angular/common";
 
 @Component({
   selector: 'app-order-update',

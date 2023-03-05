@@ -2,46 +2,46 @@
   <div class="relative w-full h-full max-w-lg md:h-auto border border-gray-300">
     <div class="relative bg-white rounded-lg shadow">
       <button
-        (click)="emitConfirmUpdate(false)"
+        (click)="emitConfirmCreation(false)"
         type="button"
         class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" data-modal-hide="authentication-modal"
       >
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
       </button>
       <div class="px-6 py-6 lg:px-8">
-        <h3 class="mb-4 text-xl font-medium text-gray-900">Editar Orden</h3>
-        <form [formGroup]="updateOrderForm" (ngSubmit)="updateOrder(updateOrderForm.value)">
+        <h3 class="mb-4 text-xl font-medium text-gray-900">Crear Cliente</h3>
+        <form [formGroup]="createClientForm" (ngSubmit)="createClient(createClientForm.value)">
 
           <div class="mb-6">
-            <label for="code" class="block mb-1 text-sm font-medium text-gray-900">Código</label>
-            <input id="code" formControlName="codigo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="PROD-12432" required>
-            <p *ngIf="updateOrderForm.get('codigo')!.hasError('required') &&
-              updateOrderForm.get('codigo')!.touched"
+            <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Nombre</label>
+            <input id="name" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
+            <p *ngIf="createClientForm.get('nombre')!.hasError('required') &&
+              createClientForm.get('nombre')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
-            <label for="price" class="block mb-1 text-sm font-medium text-gray-900">Precio</label>
-            <input id="price" formControlName="precio" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="1.000.000" required>
-            <p *ngIf="updateOrderForm.get('precio')!.hasError('required') &&
-              updateOrderForm.get('precio')!.touched"
+            <label for="email" class="block mb-1 text-sm font-medium text-gray-900">Email</label>
+            <input id="email" formControlName="login" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="nombre@mail.com" required>
+            <p *ngIf="createClientForm.get('login')!.hasError('required') &&
+              createClientForm.get('login')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
-            <label for="date" class="block mb-1 text-sm font-medium text-gray-900">Fecha de compra</label>
-            <input id="date" min="{{date}}" formControlName="fecha_compra" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
-            <p *ngIf="updateOrderForm.get('fecha_compra')!.hasError('required') &&
-              updateOrderForm.get('fecha_compra')!.touched"
+            <label for="password" class="block mb-1 text-sm font-medium text-gray-900">Clave</label>
+            <input id="password" formControlName="clave" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="******" required>
+            <p *ngIf="createClientForm.get('clave')!.hasError('required') &&
+              createClientForm.get('clave')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="flex justify-end">
             <button
-              (click)="emitConfirmUpdate(false)"
+              (click)="emitConfirmCreation(false)"
               type="button"
               class="text-gray-500 mr-5 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-base font-medium px-5 py-2 hover:text-gray-900 focus:z-10"
             >
@@ -49,11 +49,11 @@
             </button>
             <button
               type="submit"
-              [ngClass]="{'opacity-50 cursor-not-allowed': updateOrderForm.invalid}"
-              [disabled]="updateOrderForm.invalid"
+              [ngClass]="{'opacity-50 cursor-not-allowed': createClientForm.invalid}"
+              [disabled]="createClientForm.invalid"
               class="inline-flex items-center text-white bg-indigo-600 hover:bg-indigo-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-9 py-2"
             >
-              Editar
+              Crear
             </button>
           </div>
         </form>
