@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {OrderService} from "./order.service";
-// import {MatSnackBar} from "@angular/material/snack-bar";
 import {Order} from "./order";
 
 @Component({
@@ -9,17 +8,25 @@ import {Order} from "./order";
 })
 export class OrderComponent implements OnInit {
   constructor(
-    private orderService: OrderService,
-    // private _snackBar: MatSnackBar
+    private orderService: OrderService
   ) { }
 
   orders: Array<Order> = []
+  deleteModalActive: boolean = false
 
   deleteOrder(orderId: string): void {
     this.orderService.deleteOrder(orderId).subscribe(() => {
-      this.openSnackBar('Orden eliminada exitosamente')
       this.getOrdersList()
     })
+  }
+
+  openDeleteModal() {
+    this.deleteModalActive = true
+  }
+
+  confirmDeletion(value: boolean, orderId: string) {
+    if (value) this.deleteOrder(orderId)
+    this.deleteModalActive = false
   }
 
   getOrdersList(): void {
@@ -30,15 +37,5 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrdersList()
-  }
-
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 4000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
   }
 }

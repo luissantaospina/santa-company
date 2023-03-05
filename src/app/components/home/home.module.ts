@@ -7,9 +7,9 @@ import { ClientComponent } from './client/client.component';
 import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
-import {MatIconModule} from "@angular/material/icon";
-import {MatTooltipModule} from "@angular/material/tooltip";
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { DeleteModalComponent } from "../share/delete-modal/delete-modal.component";
 
 
 @NgModule({
@@ -20,13 +20,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     RoleComponent,
     UserComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    DeleteModalComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatIconModule,
-    MatTooltipModule
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }
