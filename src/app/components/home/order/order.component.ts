@@ -13,6 +13,7 @@ export class OrderComponent implements OnInit {
 
   orders: Array<Order> = []
   deleteModalActive: boolean = false
+  selectedOrder: any
 
   deleteOrder(orderId: string): void {
     this.orderService.deleteOrder(orderId).subscribe(() => {
@@ -20,8 +21,8 @@ export class OrderComponent implements OnInit {
     })
   }
 
-  confirmDeletion(value: boolean, orderId: string) {
-    if (value) this.deleteOrder(orderId)
+  confirmDeletion(value: boolean) {
+    if (value) this.deleteOrder(this.selectedOrder.id)
     this.deleteModalActive = false
   }
 
@@ -33,5 +34,10 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getOrdersList()
+  }
+
+  selectDeleteOrder(order: Order) {
+    this.selectedOrder = order
+    this.deleteModalActive = true
   }
 }
