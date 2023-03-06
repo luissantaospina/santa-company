@@ -11,11 +11,23 @@ export class RoleComponent implements OnInit {
 
   roles: Array<Role> = []
   deleteModalActive: boolean = false
+  createModalActive: boolean = false
+  updateModalActive: boolean = false
   selectedRole: any
 
   confirmDeletion(value: boolean) {
     if (value) this.deleteRole(this.selectedRole.id)
     this.deleteModalActive = false
+  }
+
+  confirmCreation() {
+    this.getRolesList()
+    this.createModalActive = false
+  }
+
+  confirmUpdate() {
+    this.getRolesList()
+    this.updateModalActive = false
   }
 
   deleteRole(roleId: string): void {
@@ -32,10 +44,5 @@ export class RoleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRolesList()
-  }
-
-  selectDeleteRole(role: Role) {
-    this.selectedRole = role
-    this.deleteModalActive = true
   }
 }

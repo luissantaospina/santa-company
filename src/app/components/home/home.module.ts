@@ -17,6 +17,8 @@ import { ClientCreateComponent } from './client/client-create/client-create.comp
 import { ClientUpdateComponent } from './client/client-update/client-update.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserUpdateComponent } from './user/user-update/user-update.component';
+import { RoleCreateComponent } from './role/role-create/role-create.component';
+import { RoleUpdateComponent } from './role/role-update/role-update.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UserUpdateComponent } from './user/user-update/user-update.component';
     ClientCreateComponent,
     ClientUpdateComponent,
     UserCreateComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    RoleCreateComponent,
+    RoleUpdateComponent
   ],
     imports: [
         CommonModule,
