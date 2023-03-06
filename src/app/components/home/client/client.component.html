@@ -71,3 +71,10 @@
   (confirmCreation) = "confirmCreation()"
 >
 </app-client-create>
+
+<app-client-update
+  *ngIf="updateModalActive"
+  [clientId] = "selectedClient"
+  (confirmUpdate) = "confirmUpdate()"
+>
+</app-client-update>

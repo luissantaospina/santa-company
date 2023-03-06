@@ -8,13 +8,15 @@ import { RoleComponent } from './role/role.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { DeleteModalComponent } from "../share/delete-modal/delete-modal.component";
 import { OrderCreateComponent } from './order/order-create/order-create.component';
 import { ToastComponent } from "../share/toast/toast.component";
 import { OrderUpdateComponent } from './order/order-update/order-update.component';
 import { ClientCreateComponent } from './client/client-create/client-create.component';
 import { ClientUpdateComponent } from './client/client-update/client-update.component';
+import { UserCreateComponent } from './user/user-create/user-create.component';
+import { UserUpdateComponent } from './user/user-update/user-update.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +32,15 @@ import { ClientUpdateComponent } from './client/client-update/client-update.comp
     ToastComponent,
     OrderUpdateComponent,
     ClientCreateComponent,
-    ClientUpdateComponent
+    ClientUpdateComponent,
+    UserCreateComponent,
+    UserUpdateComponent
   ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        HomeRoutingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ]
 })
 export class HomeModule { }

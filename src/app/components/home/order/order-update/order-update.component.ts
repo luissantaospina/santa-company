@@ -55,7 +55,7 @@ export class OrderUpdateComponent implements OnInit {
   updateOrder(order: Order) {
     this.orderService.updateOrder(this.orderId, order).subscribe(order => {
       this.updateOrderForm.reset()
-      this.router.navigate(['inicio/ordenes'])
+      this.emitConfirmUpdate(false)
     })
   }
 }

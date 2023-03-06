@@ -13,11 +13,23 @@ export class UserComponent implements OnInit {
 
   users: Array<User> = []
   deleteModalActive: boolean = false
+  createModalActive: boolean = false
+  updateModalActive: boolean = false
   selectedUser: any
 
   confirmDeletion(value: boolean) {
     if (value) this.deleteUser(this.selectedUser.id)
     this.deleteModalActive = false
+  }
+
+  confirmCreation() {
+    this.getUsersList()
+    this.createModalActive = false
+  }
+
+  confirmUpdate() {
+    this.getUsersList()
+    this.updateModalActive = false
   }
 
   deleteUser(userId: string): void {
@@ -35,10 +47,5 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsersList()
-  }
-
-  selectDeleteUser(user: User) {
-    this.selectedUser = user
-    this.deleteModalActive = true
   }
 }
