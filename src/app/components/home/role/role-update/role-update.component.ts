@@ -31,7 +31,7 @@ export class RoleUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.getRole(this.roleId)
     this.updateRoleForm = this.formBuilder.group({
-      nombre: ["", Validators.required]
+      name: ["", Validators.required]
     })
   }
 
@@ -39,7 +39,7 @@ export class RoleUpdateComponent implements OnInit {
     this.roleService.getRole(id).subscribe(role => {
       this.roleSave = role
       this.updateRoleForm = this.formBuilder.group({
-        nombre: [this.roleSave.nombre, Validators.required]
+        name: [this.roleSave.name, Validators.required]
       })
     })
   }

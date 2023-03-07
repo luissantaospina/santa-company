@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 import { LoginService } from './login.service'
 import { Router } from '@angular/router'
-// import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private api:LoginService,
-    // private _snackBar: MatSnackBar,
     private router:Router
   ) { }
 
@@ -42,21 +40,10 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("token", loginResponse.access_token)
     localStorage.setItem('permissions', JSON.stringify(loginResponse.permissions))
     localStorage.setItem('user', JSON.stringify(loginResponse.user.id))
-    this.router.navigate(['inicio/ordenes'])
+    this.router.navigate(['home/orders'])
   }
 
   loginError(loginError: any) {
-    this.openSnackBar('El email y/o contraseña es incorrecto')
     this.loginForm.reset()
-  }
-
-  openSnackBar(message: string) {
-    // this._snackBar.open(
-    //   message, '', {
-    //     duration: 5000,
-    //     horizontalPosition: 'center',
-    //     verticalPosition: 'top'
-    //   }
-    // );
   }
 }

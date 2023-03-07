@@ -36,8 +36,8 @@ export class UserUpdateComponent implements OnInit {
     this.getRolesList()
     this.getUser(this.userId)
     this.updateUserForm = this.formBuilder.group({
-      nombre: ["", Validators.required],
-      rol_id: ["", Validators.required],
+      name: ["", Validators.required],
+      role_id: ["", Validators.required],
       email: ["", Validators.required],
       password: ["", Validators.required]
     })
@@ -45,7 +45,7 @@ export class UserUpdateComponent implements OnInit {
 
   changeRole() {
     this.updateUserForm.patchValue({
-      rol_id: this.roleSelect
+      role_id: this.roleSelect
     });
   }
 
@@ -60,8 +60,8 @@ export class UserUpdateComponent implements OnInit {
       this.userSave = user
       this.roleSelect = this.userSave.role.id
       this.updateUserForm = this.formBuilder.group({
-        nombre: [this.userSave.nombre, Validators.required],
-        rol_id: [this.userSave.role.id, Validators.required],
+        name: [this.userSave.name, Validators.required],
+        role_id: [this.userSave.role.id, Validators.required],
         email: [this.userSave.email, Validators.required],
         password: ["", Validators.required]
       })

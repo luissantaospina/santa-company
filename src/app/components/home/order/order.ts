@@ -1,22 +1,22 @@
 export class Order {
   id: string
-  cliente_id: string
-  codigo: string
-  precio: number
-  fecha_compra: string
+  client_id: string
+  code: string
+  price: number
+  date_purchase: string
 
   constructor(
     id: string,
-    cliente_id: string,
-    codigo: string,
-    precio: number,
-    fecha_compra: string
+    client_id: string,
+    code: string,
+    price: number,
+    date_purchase: string
   )
   {
     this.id = id
-    this.cliente_id = cliente_id
-    this.codigo = codigo
-    this.precio = precio
-    this.fecha_compra = fecha_compra
+    this.client_id = client_id
+    this.code = code
+    this.price = price
+    this.date_purchase = date_purchase
   }
 }

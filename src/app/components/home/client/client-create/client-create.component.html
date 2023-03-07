@@ -14,27 +14,27 @@
 
           <div class="mb-6">
             <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Nombre</label>
-            <input id="name" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
-            <p *ngIf="createClientForm.get('nombre')!.hasError('required') &&
-              createClientForm.get('nombre')!.touched"
+            <input id="name" formControlName="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
+            <p *ngIf="createClientForm.get('name')!.hasError('required') &&
+              createClientForm.get('name')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
             <label for="email" class="block mb-1 text-sm font-medium text-gray-900">Email</label>
-            <input id="email" formControlName="login" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="nombre@mail.com" required>
-            <p *ngIf="createClientForm.get('login')!.hasError('required') &&
-              createClientForm.get('login')!.touched"
+            <input id="email" formControlName="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="nombre@mail.com" required>
+            <p *ngIf="createClientForm.get('email')!.hasError('required') &&
+              createClientForm.get('email')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
             <label for="password" class="block mb-1 text-sm font-medium text-gray-900">Clave</label>
-            <input id="password" formControlName="clave" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="******" required>
-            <p *ngIf="createClientForm.get('clave')!.hasError('required') &&
-              createClientForm.get('clave')!.touched"
+            <input id="password" formControlName="password" type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="******" required>
+            <p *ngIf="createClientForm.get('password')!.hasError('required') &&
+              createClientForm.get('password')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>

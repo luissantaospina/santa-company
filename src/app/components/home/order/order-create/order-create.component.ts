@@ -29,10 +29,10 @@ export class OrderCreateComponent implements OnInit {
     this.date = formatDate(new Date(), 'yyyy-MM-dd', 'en-US')
     this.user = localStorage.getItem('user')
     this.createOrderForm = this.formBuilder.group({
-      codigo: ["", Validators.required],
-      precio: ["", Validators.required],
-      cliente_id: [this.user, Validators.required],
-      fecha_compra: ["", Validators.required]
+      code: ["", Validators.required],
+      price: ["", Validators.required],
+      client_id: [this.user, Validators.required],
+      date_purchase: ["", Validators.required]
     })
   }
 

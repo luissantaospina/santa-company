@@ -1,16 +1,16 @@
 export class Client {
   id: string
-  nombre: string
-  login: string
+  name: string
+  email: string
 
   constructor(
     id: string,
-    nombre: string,
-    login: string
+    name: string,
+    email: string
   )
   {
     this.id = id
-    this.nombre = nombre
-    this.login = login
+    this.name = name
+    this.email = email
   }
 }

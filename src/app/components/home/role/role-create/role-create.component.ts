@@ -24,7 +24,7 @@ export class RoleCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createRoleForm = this.formBuilder.group({
-      nombre: ["", Validators.required]
+      name: ["", Validators.required]
     })
   }
 

@@ -31,9 +31,9 @@ export class ClientUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.getClient(this.clientId)
     this.updateClientForm = this.formBuilder.group({
-      nombre: ["", Validators.required],
-      login: ["", Validators.required],
-      clave: ["", Validators.required]
+      name: ["", Validators.required],
+      email: ["", Validators.required],
+      password: ["", Validators.required]
     })
   }
 
@@ -41,9 +41,9 @@ export class ClientUpdateComponent implements OnInit {
     this.clientService.getClient(id).subscribe(client => {
       this.clientSave = client
       this.updateClientForm = this.formBuilder.group({
-        nombre: [this.clientSave.nombre, Validators.required],
-        login: [this.clientSave.login, Validators.required],
-        clave: ["", Validators.required]
+        name: [this.clientSave.name, Validators.required],
+        email: [this.clientSave.email, Validators.required],
+        password: ["", Validators.required]
       })
     })
   }

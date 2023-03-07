@@ -15,15 +15,15 @@
           <div class="mb-6">
             <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Nombre</label>
             <input id="name" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
-            <p *ngIf="updateUserForm.get('nombre')!.hasError('required') &&
-              updateUserForm.get('nombre')!.touched"
+            <p *ngIf="updateUserForm.get('name')!.hasError('required') &&
+              updateUserForm.get('name')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
             <label for="email" class="block mb-1 text-sm font-medium text-gray-900">Email</label>
-            <input id="email" formControlName="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="nombre@mail.com" required>
+            <input id="email" formControlName="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="name@mail.com" required>
             <p *ngIf="updateUserForm.get('email')!.hasError('required') &&
               updateUserForm.get('email')!.touched"
                class="text-sm text-red-600"
@@ -40,18 +40,18 @@
           </div>
 
           <div class="mb-6">
-            <label for="rol_id" class="block mb-1 text-sm font-medium text-gray-900">Rol</label>
+            <label for="role_id" class="block mb-1 text-sm font-medium text-gray-900">Rol</label>
             <select
-              id="rol_id"
+              id="role_id"
               [(ngModel)]="roleSelect"
               [ngModelOptions]="{standalone: true}"
               (change)="changeRole()"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
-              <option [value]="role.id" *ngFor="let role of roles">{{role.nombre}}</option>
+              <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
             </select>
-            <p *ngIf="updateUserForm.get('rol_id')!.hasError('required') &&
-                updateUserForm.get('rol_id')!.touched"
+            <p *ngIf="updateUserForm.get('role_id')!.hasError('required') &&
+                updateUserForm.get('role_id')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>

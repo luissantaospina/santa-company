@@ -14,27 +14,27 @@
 
           <div class="mb-6">
             <label for="code" class="block mb-1 text-sm font-medium text-gray-900">Código</label>
-            <input id="code" formControlName="codigo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="PROD-12432" required>
-            <p *ngIf="createOrderForm.get('codigo')!.hasError('required') &&
-              createOrderForm.get('codigo')!.touched"
+            <input id="code" formControlName="code" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="PROD-12432" required>
+            <p *ngIf="createOrderForm.get('code')!.hasError('required') &&
+              createOrderForm.get('code')!.touched"
               class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
             <label for="price" class="block mb-1 text-sm font-medium text-gray-900">Precio</label>
-            <input id="price" formControlName="precio" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="1.000.000" required>
-            <p *ngIf="createOrderForm.get('precio')!.hasError('required') &&
-              createOrderForm.get('precio')!.touched"
+            <input id="price" formControlName="price" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="1.000.000" required>
+            <p *ngIf="createOrderForm.get('price')!.hasError('required') &&
+              createOrderForm.get('price')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
 
           <div class="mb-6">
             <label for="date" class="block mb-1 text-sm font-medium text-gray-900">Fecha de compra</label>
-            <input id="date" min="{{date}}" formControlName="fecha_compra" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
-            <p *ngIf="createOrderForm.get('fecha_compra')!.hasError('required') &&
-              createOrderForm.get('fecha_compra')!.touched"
+            <input id="date" min="{{date}}" formControlName="date_purchase" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required>
+            <p *ngIf="createOrderForm.get('date_purchase')!.hasError('required') &&
+              createOrderForm.get('date_purchase')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>

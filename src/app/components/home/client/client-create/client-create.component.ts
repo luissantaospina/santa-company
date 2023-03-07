@@ -24,9 +24,9 @@ export class ClientCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.createClientForm = this.formBuilder.group({
-      nombre: ["", Validators.required],
-      login: ["", Validators.required],
-      clave: ["", Validators.required]
+      name: ["", Validators.required],
+      email: ["", Validators.required],
+      password: ["", Validators.required]
     })
   }
 

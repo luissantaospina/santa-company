@@ -1,13 +1,13 @@
 export class Role {
-  nombre: string;
+  name: string;
   id: string
 
   constructor(
-    nombre: string,
+    name: string,
     id: string
   )
   {
-    this.nombre = nombre;
+    this.name = name;
     this.id = id;
   }
 }

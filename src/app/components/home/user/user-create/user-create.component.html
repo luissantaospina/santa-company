@@ -14,9 +14,9 @@
 
           <div class="mb-6">
             <label for="name" class="block mb-1 text-sm font-medium text-gray-900">Nombre</label>
-            <input id="name" formControlName="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
-            <p *ngIf="createUserForm.get('nombre')!.hasError('required') &&
-              createUserForm.get('nombre')!.touched"
+            <input id="name" formControlName="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required>
+            <p *ngIf="createUserForm.get('name')!.hasError('required') &&
+              createUserForm.get('name')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>
@@ -40,18 +40,18 @@
           </div>
 
           <div class="mb-6">
-            <label for="rol_id" class="block mb-1 text-sm font-medium text-gray-900">Rol</label>
+            <label for="role_id" class="block mb-1 text-sm font-medium text-gray-900">Rol</label>
             <select
-              id="rol_id"
+              id="role_id"
               [(ngModel)]="roleSelect"
               [ngModelOptions]="{standalone: true}"
               (change)="changeRole()"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
-              <option [value]="role.id" *ngFor="let role of roles">{{role.nombre}}</option>
+              <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
             </select>
-            <p *ngIf="createUserForm.get('rol_id')!.hasError('required') &&
-                createUserForm.get('rol_id')!.touched"
+            <p *ngIf="createUserForm.get('role_id')!.hasError('required') &&
+                createUserForm.get('role_id')!.touched"
                class="text-sm text-red-600"
             >Campo requerido</p>
           </div>

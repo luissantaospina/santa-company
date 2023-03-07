@@ -33,10 +33,10 @@ export class OrderUpdateComponent implements OnInit {
     this.date = formatDate(new Date(), 'yyyy-MM-dd', 'en-US')
     this.getOrder(this.orderId)
     this.updateOrderForm = this.formBuilder.group({
-      codigo: ["", Validators.required],
-      precio: ["", Validators.required],
-      cliente_id: ["", Validators.required],
-      fecha_compra: ["", Validators.required]
+      code: ["", Validators.required],
+      price: ["", Validators.required],
+      client_id: ["", Validators.required],
+      date_purchase: ["", Validators.required]
     })
   }
 
@@ -44,10 +44,10 @@ export class OrderUpdateComponent implements OnInit {
     this.orderService.getOrder(id).subscribe(order => {
       this.orderSave = order
       this.updateOrderForm = this.formBuilder.group({
-        codigo: [this.orderSave.codigo, Validators.required],
-        precio: [this.orderSave.precio, Validators.required],
-        cliente_id: [this.orderSave.cliente_id, Validators.required],
-        fecha_compra: [this.orderSave.fecha_compra, Validators.required]
+        code: [this.orderSave.code, Validators.required],
+        price: [this.orderSave.price, Validators.required],
+        client_id: [this.orderSave.client_id, Validators.required],
+        date_purchase: [this.orderSave.date_purchase, Validators.required]
       })
     })
   }

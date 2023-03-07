@@ -30,8 +30,8 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {
     this.getRolesList()
     this.createUserForm = this.formBuilder.group({
-      nombre: ["", Validators.required],
-      rol_id: ["", Validators.required],
+      name: ["", Validators.required],
+      role_id: ["", Validators.required],
       email: ["", Validators.required],
       password: ["", Validators.required]
     })
@@ -39,7 +39,7 @@ export class UserCreateComponent implements OnInit {
 
   changeRole() {
     this.createUserForm.patchValue({
-      rol_id: this.roleSelect
+      roel_id: this.roleSelect
     });
   }
 
