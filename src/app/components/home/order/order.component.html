@@ -1,0 +1,93 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="flex items-center justify-between pb-4">
+    <label for="table-search" class="sr-only">Search</label>
+    <div class="relative">
+      <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+        <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+      </div>
+      <input type="text" id="table-search" class="block p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search for items">
+    </div>
+    <div>
+      <button
+        class="inline-flex items-center text-white bg-indigo-600 hover:bg-indigo-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-6 py-2"
+        type="button"
+        (click)="createModalActive = true"
+      >
+        Crear
+        <svg class="h-5 w-5 text-white ml-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg>      </button>
+    </div>
+  </div>
+
+  <table aria-describedby="orders" class="w-full text-sm text-left text-gray-500">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+    <tr>
+      <th scope="col" class="px-6 py-3">
+        Código
+      </th>
+      <th scope="col" class="px-6 py-3">
+        Precio
+      </th>
+      <th scope="col" class="px-6 py-3">
+        Fecha
+      </th>
+      <th scope="col" class="px-6 py-3">
+        Acciones
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b hover:bg-indigo-50" *ngFor="let order of orders">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{order.code}}
+        </th>
+        <td class="px-6 py-4">
+          {{order.price}}
+        </td>
+        <td class="px-6 py-4">
+          {{order.date_purchase}}
+        </td>
+        <td class="px-6 py-4 flex">
+          <a
+            class="cursor-pointer"
+            (click)="selectedOrder = order.id; updateModalActive = true"
+          >
+            <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" /></svg>
+          </a>
+          <a
+            class="ml-4 cursor-pointer"
+            (click)="selectedOrder = order.id; deleteModalActive = true"
+          >
+            <svg class="h-6 w-6 text-red-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polyline points="3 6 5 6 21 6" />  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" /></svg>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-delete-modal
+  *ngIf="deleteModalActive"
+  [modalTitle] = "'¿Estás seguro de eliminar la orden?'"
+  (confirmDeletion) = "confirmDeletion($event)"
+>
+</app-delete-modal>
+
+<app-order-create
+  *ngIf="createModalActive"
+  (confirmCreation) = "confirmCreation()"
+>
+</app-order-create>
+
+<app-order-update
+  *ngIf="updateModalActive"
+  [orderId] = "selectedOrder"
+  (confirmUpdate) = "confirmUpdate()"
+>
+</app-order-update>
+
+<app-toast
+  *ngIf="toastModalActive"
+  [toastTitle] = "'Orden eliminada exitosamente'"
+  [type] = "'info'"
+>
+</app-toast>
