@@ -39,7 +39,7 @@ export class UserCreateComponent implements OnInit {
 
   changeRole() {
     this.createUserForm.patchValue({
-      roel_id: this.roleSelect
+      role_id: this.roleSelect
     });
   }
 
@@ -52,6 +52,7 @@ export class UserCreateComponent implements OnInit {
   createUser(user: User) {
     this.userService.createUser(user).subscribe(() => {
       this.createUserForm.reset()
+      this.emitConfirmCreation(false)
     })
   }
 }
