@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { UserService } from "../user.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { User } from "../User";
-import { ActivatedRoute, Router } from '@angular/router'
 import { Role } from "../../role/role";
 import { RoleService } from "../../role/role.service";
 
@@ -18,9 +17,7 @@ export class UserUpdateComponent implements OnInit {
   constructor(
     private userService: UserService,
     private formBuilder: FormBuilder,
-    private route:ActivatedRoute,
-    private roleService: RoleService,
-    private router:Router
+    private roleService: RoleService
   ) { }
 
   userSave: any

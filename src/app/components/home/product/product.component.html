@@ -11,6 +11,7 @@
       <button
         class="inline-flex items-center text-white bg-indigo-600 hover:bg-indigo-900 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-base px-6 py-2"
         type="button"
+        (click)="createModalActive = true"
       >
         Crear
         <svg class="h-5 w-5 text-white ml-2"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="5" y1="12" x2="19" y2="12" /></svg>      </button>
@@ -54,12 +55,13 @@
       <td class="px-6 py-4 flex">
         <a
           class="cursor-pointer"
+          (click)="selectedProduct = product.id; updateModalActive = true"
         >
           <svg class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" /></svg>
         </a>
         <a
           class="ml-4 cursor-pointer"
-          (click)="selectDeleteProduct(product)"
+          (click)="selectedProduct = product.id; deleteModalActive = true"
         >
           <svg class="h-6 w-6 text-red-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <polyline points="3 6 5 6 21 6" />  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" /></svg>
         </a>
@@ -75,3 +77,16 @@
   (confirmDeletion) = "confirmDeletion($event)"
 >
 </app-delete-modal>
+
+<app-product-create
+  *ngIf="createModalActive"
+  (confirmCreation) = "confirmCreation()"
+>
+</app-product-create>
+
+<app-product-update
+  *ngIf="updateModalActive"
+  [productId] = "selectedProduct"
+  (confirmUpdate) = "confirmUpdate()"
+>
+</app-product-update>

@@ -19,6 +19,8 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserUpdateComponent } from './user/user-update/user-update.component';
 import { RoleCreateComponent } from './role/role-create/role-create.component';
 import { RoleUpdateComponent } from './role/role-update/role-update.component';
+import { ProductCreateComponent } from './product/product-create/product-create.component';
+import { ProductUpdateComponent } from './product/product-update/product-update.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { RoleUpdateComponent } from './role/role-update/role-update.component';
     UserCreateComponent,
     UserUpdateComponent,
     RoleCreateComponent,
-    RoleUpdateComponent
+    RoleUpdateComponent,
+    ProductCreateComponent,
+    ProductUpdateComponent
   ],
     imports: [
         CommonModule,
