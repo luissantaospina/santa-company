@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { ClientService } from "../client.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Client } from "../client";
-import { Router, ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-client-update',
@@ -15,9 +14,7 @@ export class ClientUpdateComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
-    private formBuilder: FormBuilder,
-    private route:ActivatedRoute,
-    private router:Router,
+    private formBuilder: FormBuilder
   ) { }
 
   updateClientForm!: FormGroup

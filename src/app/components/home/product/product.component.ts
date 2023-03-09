@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "./products.service";
 import { Product } from "./Product";
-import {Order} from "../order/order";
 
 @Component({
   selector: 'app-product',
@@ -19,7 +18,7 @@ export class ProductComponent implements OnInit {
   selectedProduct: any
 
   confirmDeletion(value: boolean) {
-    if (value) this.deleteProduct(this.selectedProduct.id)
+    if (value) this.deleteProduct(this.selectedProduct)
     this.deleteModalActive = false
   }
 
@@ -47,10 +46,5 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductsList()
-  }
-
-  selectDeleteProduct(product: Product) {
-    this.selectedProduct = product
-    this.deleteModalActive = true
   }
 }

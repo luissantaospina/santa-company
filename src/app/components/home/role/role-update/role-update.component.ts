@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { RoleService } from "../role.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Role } from "../role";
-import { ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-role-update',
@@ -15,9 +14,7 @@ export class RoleUpdateComponent implements OnInit {
 
   constructor(
     private roleService: RoleService,
-    private formBuilder: FormBuilder,
-    private route:ActivatedRoute,
-    private router:Router
+    private formBuilder: FormBuilder
   ) { }
 
   role: any

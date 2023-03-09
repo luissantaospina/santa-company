@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
 import { Order } from "../order";
 import { OrderService } from "../order.service";
 import { formatDate } from "@angular/common";
@@ -16,9 +15,7 @@ export class OrderUpdateComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private formBuilder: FormBuilder,
-    private route:ActivatedRoute,
-    private router:Router
+    private formBuilder: FormBuilder
   ) { }
 
   orderSave: any

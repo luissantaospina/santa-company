@@ -84,9 +84,9 @@
 >
 </app-product-create>
 
-<!--<app-product-update-->
-<!--  *ngIf="updateModalActive"-->
-<!--  [productId] = "selectedOrder"-->
-<!--  (confirmUpdate) = "confirmUpdate()"-->
-<!--&gt;-->
-<!--</app-product-update>-->
+<app-product-update
+  *ngIf="updateModalActive"
+  [productId] = "selectedProduct"
+  (confirmUpdate) = "confirmUpdate()"
+>
+</app-product-update>
