@@ -14,11 +14,23 @@ export class ProductComponent implements OnInit {
 
   products: Array<Product> = []
   deleteModalActive: boolean = false
+  createModalActive: boolean = false
+  updateModalActive: boolean = false
   selectedProduct: any
 
   confirmDeletion(value: boolean) {
     if (value) this.deleteProduct(this.selectedProduct.id)
     this.deleteModalActive = false
+  }
+
+  confirmCreation() {
+    this.getProductsList()
+    this.createModalActive = false
+  }
+
+  confirmUpdate() {
+    this.getProductsList()
+    this.updateModalActive = false
   }
 
   deleteProduct(productId: string): void {
